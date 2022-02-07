@@ -27,7 +27,7 @@ public class AuthController {
     
     @Autowired MailService mailService;
 
-    @Operation(summary = "recibe email y password, si es correcto returna un token")
+    @Operation(summary = "recibe email y password, si es correcto retorna un token")
     @PostMapping("/login")
     public String login(@RequestBody User user){
         Optional<User> usuarioLogeado = userService.obtenerUsuarioCredenciales(user);
@@ -38,7 +38,7 @@ public class AuthController {
         return "fail";
     }
     
-    @Operation(summary = "almacena un usuario nuevo en la base de datos")
+    @Operation(summary = "almacena un usuario nuevo en la base de datos, envía correo de confirmación")
     @PostMapping("/register")
     public User saveUser(@RequestBody User user) throws IOException {
     	Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);

@@ -54,7 +54,7 @@ public class PersonajeController {
         return ResponseEntity.ok(personajeService.getPersonaje(id).get());
     }
 
-    @Operation(summary = "retorna una lista con todos los personajes",description = "")
+    @Operation(summary = "retorna una lista con todos los personajes, adicionalmente filtra de acuerdo a su nombre o edad",description = "")
     @GetMapping("")
     public ResponseEntity<List<Personaje>> filtroPersonaje(
             @RequestParam(required = false, defaultValue = "") String nombre,

@@ -42,7 +42,7 @@ public class PeliculaController {
         return ResponseEntity.ok(peliculaService.getPelicula(id).get());
     }
 
-    @Operation(summary = "returna una lista con todas las peliculas", description = "")
+    @Operation(summary = "returna una lista con todas las peliculas, adicional filtra segun segun su titulo, genero u orden", description = "")
     @GetMapping("")
     public List<Pelicula> filtroPelicula(
             @RequestParam(required = false, defaultValue = "") String titulo,
